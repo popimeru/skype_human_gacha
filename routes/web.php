@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GahcaMachineController;
+use App\Http\Controllers\GachaMachineController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +13,4 @@ use App\Http\Controllers\GahcaMachineController;
 |
 */
 
-Route::get('/',[GahcaMachineController::class,'index']);
+Route::get('/',[GachaMachineController::class,'index']);
