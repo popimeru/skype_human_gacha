@@ -13,4 +13,8 @@ use App\Http\Controllers\GachaMachineController;
 |
 */
 
-Route::get('/',[GachaMachineController::class,'index']);
+Route::get('/',[GachaMachineController::class,'index'])->name('top');
+
+Route::get('/gachamachine/{id?}/{capsule_id?}',[GachaMachineController::class,'show']);
+Route::post('gachamachine',[GachaMachineController::class,'turn']);
+
