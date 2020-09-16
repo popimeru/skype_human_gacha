@@ -11,6 +11,6 @@ class GachaMachineController extends Controller
     public function index(){
         $gacha_list = GachaMachine::orderBy('created_at','desc')->get();
 
-        return view('gachamachine.index',['gacha_list' => $gacha_list]);
+        return view('gacha_machine.index',['gacha_list' => $gacha_list]);
     }
 }
