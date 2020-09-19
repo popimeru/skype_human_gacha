@@ -16,27 +16,25 @@ class GachaMachineController extends Controller
     }
 
     //トップページからのリンクで、選ばれたガチャの詳細画面を作る
-    public function show($id=0,$capsule_id = 0){
+    public function show($id=0){
         if($id==0){
-            $gacha = '';
+            $gacha = [];
         }else{
             $gacha = GachaMachine::find($id);
+            if(is_null($gacha)){
+                dump($gacha);
+                $gacha = [];
+            }
         }
-
-        if($capsule_id == 0){
-            $capsule = [];
-        }else{
-            $capsule = GachaCapsule::find($capsule_id);
-        }
-        return view('gacha_machine.show')->with(['gacha'=>$gacha,'capsule'=>$capsule]);
+        
+        return view('gacha_machine.show')->with(['gacha'=>$gacha]);
     }
 
     //ガチャの詳細画面で、ガチャを回した時の処理
     public function turn(Request $request){
-        $result_capsule_id = GachaMachine::find($request->id)->gachaCapsule->random();
-        $id = $request->id;
-        //$capsule = ['name' => $result_capsule->name,'skype_id'=> $result_capsule->skype_id,'comment'=>$result_capsule->comment];
-        //dd($capsule);
-        return redirect()->action([get_class($this),'show'],['id'=>$id,'capsule_id' => $result_capsule_id]);
+        $gacha = GachaMachine::find($request->id);
+        $result_capsule_id = $gacha->gachaCapsule->random();
+
+        return view('gacha_machine.show',['gacha' => $gacha,'result_capsule_id' => $result_capsule_id]);
     }
 }

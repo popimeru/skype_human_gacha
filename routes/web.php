@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\GachaMachineController;
+use App\Http\Controllers\GachaCapsuleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +15,15 @@ use App\Http\Controllers\GachaMachineController;
 |
 */
 
+//トップページ
 Route::get('/',[GachaMachineController::class,'index'])->name('top');
 
-Route::get('/gachamachine/{id?}/{capsule_id?}',[GachaMachineController::class,'show']);
-Route::post('gachamachine',[GachaMachineController::class,'turn']);
+//ガチャ詳細画面
+Route::get('/gachamachine/{id?}',[GachaMachineController::class,'show']);
+//ガチャを回す
+Route::post('/gachamachine',[GachaMachineController::class,'turn']);
 
+//ガチャのカプセル登録画面
+Route::get('/gachacapsule/{machine_id?}',[GachaCapsuleController::class,'regist']);
+//カプセルの登録
+Route::post('gachacapsule',[GachaCapsuleController::class,'create']);
