@@ -17,16 +17,10 @@ class GachaMachineController extends Controller
 
     //トップページからのリンクで、選ばれたガチャの詳細画面を作る
     public function show($id=0){
-        if($id==0){
+        $gacha = GachaMachine::find($id);
+        if(is_null($gacha)){
             $gacha = [];
-        }else{
-            $gacha = GachaMachine::find($id);
-            if(is_null($gacha)){
-                dump($gacha);
-                $gacha = [];
-            }
         }
-        
         return view('gacha_machine.show')->with(['gacha'=>$gacha]);
     }
 

@@ -24,6 +24,7 @@ class GachaMachineFactory extends Factory
     {
         return [
             'name' => Str::random(5),
+            'description' => Str::random(30),
             'enable_flag' => TRUE,
         ];
     }

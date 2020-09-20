@@ -16,6 +16,7 @@ class CreateGachaMachineTable extends Migration
         Schema::create('gacha_machine', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('description');
             $table->boolean('enable_flag')->default(TRUE);
             $table->timestamps();
         });

@@ -1,16 +1,34 @@
 @extends('layout')
 
 @section('content')
-    @if($machine_id != 0)
-    <form action="/gachacapsule" method="POST">
-        @csrf
-        <input type="hidden" name="gacha_machine_id" value="{{$machine_id}}">
-        名前：<input type="text" name="name" required>
-        <br>
-        SkypeID：<input type="text" name="skype_id" required>
-        <br>
-        <p>自己紹介文</p>
-        <textarea name="comment" rows="10" cols="60"></textarea>
-        <input type="submit" value="登録">
-    </form>
+    @if(!is_null($gacha))
+    <h1>{{$gacha->name.="ガチャ登録画面"}}</h1>
+        @if(!isset($message))
+        <form action="/gachacapsule" method="POST">
+            @csrf
+            <input type="hidden" name="gacha_machine_id" value="{{$gacha->id}}">
+            名前：<input type="text" name="name" value="{{old('name')}}">
+            @error('name')
+                {{$message}}
+            @enderror
+            <br>
+            SkypeID：<input type="text" name="skype_id" value="{{old('skype_id')}}">
+            @error('skype_id')
+                {{$message}}
+            @enderror
+            <br>
+            <p>自己紹介文</p>
+            <textarea name="comment" rows="10" cols="60">{{old('comment')}}</textarea>
+            @error('comment')
+                {{$message}}   
+            @enderror
+            <br>
+            <input type="submit" value="登録">
+        </form>
+        @else
+        <p>{{$message}}</p>
+        @endif
+    @else
+    <p>存在しないガチャです</p>
     @endif
+    <a href="/">ガチャ一覧ページへ</a>
