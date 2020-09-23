@@ -25,4 +25,15 @@
 @else
 <p>存在しないガチャです</p>
 @endif
+    <a href="/gachacapsule/{{$gacha->id}}">このガチャに自分を入れる</a>
 <a href="/">ガチャ一覧ページへ</a>
+
+<!--
+<div class = "rounded-pill card text-center text-dark bg-info mb-3" style = "max-width：20rem;">
+    <div class = "card-header"> <font style = "vertical-align：inherit;">{{$gacha->name .= "ガチャ"}}<font style = "vertical-align：inherit;"></font></font></div>
+    <div class = "card-body">
+        <p class = "card-text text-white"> <font style = "vertical-align：inherit;"> <font style = "vertical-align：inherit;">{{$gacha->description}}</font></font></p>
+        <a class="text-warning bg-danger btn btn-success btn-lg" href="/gachamachine/{{$gacha->id}}" role="button"> <font style = "vertical-align：inherit;"> <font style = "vertical-align：inherit;">このガチャを回す</font></font></a>
+    </div>
+</div>
+-->

@@ -10,7 +10,7 @@ class GachaMachineController extends Controller
 {
     //トップページで、ガチャの一覧を表示する
     public function index(){
-        $gacha_list = GachaMachine::orderBy('created_at','desc')->get();
+        $gacha_list = GachaMachine::orderBy('updated_at','desc')->simplePaginate(10);
 
         return view('gacha_machine.index',['gacha_list' => $gacha_list]);
     }

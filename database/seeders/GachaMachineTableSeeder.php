@@ -16,6 +16,6 @@ class GachaMachineTableSeeder extends Seeder
      */
     public function run()
     {
-        GachaMachine::factory()->times(10)->hasGachaCapsule(10)->create();
+        GachaMachine::factory()->times(47)->hasGachaCapsule(10)->create();
     }
 }

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class GachaCapsule extends Model
 {
+    protected $touches = ['GachaMachine'];
+
     use HasFactory;
     protected $table = "gacha_capsule";
     protected $fillable = [
@@ -18,6 +20,6 @@ class GachaCapsule extends Model
 
     public function gachaMachine()
     {
-        return $this->belongsTo("GachaMachine");
+        return $this->belongsTo("App\Models\GachaMachine");
     }
 }
