@@ -26,7 +26,7 @@ class CreateCapsuleRequest extends FormRequest
         return [
             'name' => 'required|max:20',
             'skype_id' => 'required|max:30',
-            'comment' => 'required|max:300'
+            'bio' => 'required|max:300'
         ];
     }
 
@@ -37,8 +37,8 @@ class CreateCapsuleRequest extends FormRequest
             'name.max' => '名前は20文字までです',
             'skype_id.required' => 'SkypeIDを入力してください',
             'skype_id.max' => '最大文字数を超えています',
-            'comment.required' => 'コメントを入力してください',
-            'comment.max' => '自己紹介文は300文字までです'
+            'bio.required' => 'コメントを入力してください',
+            'bio.max' => '自己紹介文は300文字までです'
         ];
     }
 }

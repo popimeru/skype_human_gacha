@@ -18,8 +18,13 @@
             @enderror
             <br>
             <p>自己紹介文</p>
-            <textarea name="comment" rows="10" cols="60">{{old('comment')}}</textarea>
-            @error('comment')
+            <textarea name="bio" rows="10" cols="60">{{old('bio')}}</textarea>
+            @error('bio')
+                {{$message}}   
+            @enderror
+            <br>
+            パスワード：<input type="password" name="password" value="{{old('password')}}">
+            @error('password')
                 {{$message}}   
             @enderror
             <br>
@@ -32,3 +37,4 @@
     <p>存在しないガチャです</p>
     @endif
     <a href="/">ガチャ一覧ページへ</a>
+@endsection

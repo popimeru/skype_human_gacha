@@ -17,6 +17,8 @@ use App\Http\Controllers\GachaCapsuleController;
 
 //トップページ
 Route::get('/',[GachaMachineController::class,'index'])->name('top');
+//ガチャの検索
+Route::get('/search',[GachaMachineController::class,'search']);
 
 //ガチャ詳細画面
 Route::get('/gachamachine/{id?}',[GachaMachineController::class,'show']);
@@ -27,3 +29,7 @@ Route::post('/gachamachine',[GachaMachineController::class,'turn']);
 Route::get('/gachacapsule/{machine_id?}',[GachaCapsuleController::class,'regist']);
 //カプセルの登録
 Route::post('gachacapsule',[GachaCapsuleController::class,'create']);
+
+Route::get('/delete/{id?}',[GachaCapsuleController::class,'delete']);
+Route::post('/delete',[GachaCapsuleController::class,'drop']);
+

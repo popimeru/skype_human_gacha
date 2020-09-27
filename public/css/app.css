@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+header {
+  display: block;
+  height: 70px;
+  background-color: whitesmoke;
+}
+
+header .logo {
+  display: block;
+}
+
+@media screen and (min-width: 576px) {
+  header {
+    display: block;
+    height: auto;
+  }
+
+  header .logo {
+    display: block;
+  }
+}
+

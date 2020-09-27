@@ -1,0 +1,97 @@
+@mixin xs {
+    @media screen and (max-width: 575px) {
+        @content;
+    }
+}
+@mixin sm {
+    @media screen and (min-width: 576px) {
+        @content;
+    }
+}
+@mixin md {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+@mixin lg {
+    @media screen and (min-width: 992px) {
+        @content;
+    }
+}
+@mixin xl {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+$input-height: 40px;
+
+$header-height: 70px;
+$logo-height: 50px;
+$search-height: $input-height;
+header {
+    text-align: center;
+    position: relative;
+    display: block;
+    padding: 20px 0;
+    background-color: whitesmoke;
+    user-select: none;
+    .logo,
+    .logo img {
+        max-width: 100%;
+    }
+    .search-box {
+        font-size: 0;
+        input {
+            padding: 0 12px;
+            font-size: 16px;
+            line-height: 40px;
+            border: solid 1px rgb(207, 207, 207);
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        button {
+            padding: 0 12px;
+            font-size: 16px;
+            line-height: 40px;
+            border: solid 1px rgb(207, 207, 207);
+            // border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            &:focus {
+                box-shadow: 0 2px rgb(86, 145, 255);
+                outline: none;
+            }
+        }
+    }
+    @include md {
+        height: $header-height;
+        .logo {
+            display: block;
+            position: absolute;
+            top: ($header-height - $logo-height) / 2;
+            left: ($header-height - $logo-height) / 2;
+            img {
+                height: $logo-height;
+            }
+        }
+        .search-box {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            top: ($header-height - $search-height) / 2;
+            right: ($header-height - $search-height) / 2;
+        }
+    }
+}

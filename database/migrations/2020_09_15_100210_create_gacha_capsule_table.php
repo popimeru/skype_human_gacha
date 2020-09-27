@@ -19,8 +19,11 @@ class CreateGachaCapsuleTable extends Migration
             $table->foreign('gacha_machine_id')->references('id')->on('gacha_machine');
             $table->string('skype_id');
             $table->string('name');
-            $table->string('comment');
+            $table->string('bio');
             $table->timestamps();
+            $table->string('password')->nullable();
+
+            $table->unique(['gacha_machine_id', 'skype_id']);
         });
     }
 

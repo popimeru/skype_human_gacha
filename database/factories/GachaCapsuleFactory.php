@@ -28,7 +28,8 @@ class GachaCapsuleFactory extends Factory
             'gacha_machine_id' => GachaMachine::factory(),
             'skype_id' => Str::random(10),
             'name' => $this->faker->name,
-            'comment' => Str::random(30),
+            'bio' => Str::random(30),
+            'password' => 'test',
         ];
     }
 }

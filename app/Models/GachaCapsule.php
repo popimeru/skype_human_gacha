@@ -15,7 +15,8 @@ class GachaCapsule extends Model
         'gacha_machine_id',
         'skype_id',
         'name',
-        'comment',
+        'bio',
+        'password'
     ];
 
     public function gachaMachine()
